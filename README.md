@@ -48,10 +48,10 @@ This project was developed as part of a **Data Structure and Algorithm course re
 
 ---
 
-## 🎥 Demo Video (Optional)
+## 🎥Gameplay Video
 
 If you want to see the gameplay in action before trying it out, watch the video demo:
-👉 [Watch on YouTube](https://youtu.be/YOUR_VIDEO_LINK) *(replace with your video URL)*
+👉 [Watch it](https://github.com/Tux-MacG1v/Dear-Ex-Snake-game/blob/main/snake_gihub.mp4)
 
 ---
 
