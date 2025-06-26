@@ -124,13 +124,22 @@ Overall per-frame: **O(W·H + n)**.
 
 ### Complexity Graph
 
+Here's a more modern, text-based representation of per-frame time costs:
+
 ```
-Time
-  |      \            (Rendering dominates for large boards)
-  |       \__ O(W·H) + O(n)
-  |____________________
-             Snake Length n
+       Time per Frame
+           ^
+           |       ██████████████████████████  Rendering (O(W·H))
+           |   ████                          
+           |   ████ Collision & Placement (O(n))
+           |   ██                             
+           |__██______________________________> Snake Length (n)
+             Low   Med    High
 ```
+- **Rendering (O(W·H))**: Fixed plateau independent of snake length.
+- **Collision & Placement (O(n))**: Grows linearly with snake length.
+
+> Rendering dominates overall performance, especially on larger boards.
 
 ---
 
