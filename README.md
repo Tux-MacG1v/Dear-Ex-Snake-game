@@ -51,7 +51,15 @@ This project was developed as part of a **Data Structure and Algorithm course re
 ## 🎥Gameplay Video
 
 If you want to see the gameplay in action before trying it out, watch the video demo:
-[![Watch live gameplay](https://img.icons8.com/fluency/96/youtube-play.png)](https://streamable.com/e/3z5pwm)
+
+> 📺 [Watch the gameplay demo on Streamable](https://streamable.com/e/3z5pwm)
+
+<p align="center">
+  <a href="https://streamable.com/e/3z5pwm">
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3pka3I1dXR6Y3h0YmJrMXYyYTRrcHY2OGppbzRwaTZhcHQ4Z2J1biZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ZVik7pBtu9dNS/giphy.gif" alt="Gameplay preview" width="480">
+  </a>
+</p>
+
 ---
 
 ## 🧑‍💻 Project Info
