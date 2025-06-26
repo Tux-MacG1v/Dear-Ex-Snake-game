@@ -67,6 +67,82 @@ This project is part of an undergraduate course curriculum, showcasing real-time
 
 ---
 
+---
+
+## 🔎 Analysis
+
+### Data Structures
+
+- **`deque<Point>`**: Represents the snake body for efficient insertion/removal at both ends (O(1) per operation).
+- **`Point` struct**: Stores X/Y coordinates for snake segments, food, and collision detection.
+- **`mt19937` + `uniform_int_distribution`**: Used for pseudo-random food placement, seeded by a high-resolution clock.
+
+### Algorithm Design
+
+1. **Start Screen** (`showStartScreen`)  
+   - Clears the console and draws a colored box with title, player info, and countdown.  
+   - Uses console cursor positioning to overwrite countdown number in place.
+
+2. **Game Loop** (`run`)  
+   - Records `gameStart` time.  
+   - While `alive`:  
+     - Capture input (WASD/arrow keys) with `processInput` (non-blocking).  
+     - Update snake position and state in `update`.  
+     - Render the board and status in `render`.
+
+3. **Input Handling** (`processInput`)  
+   - Differentiates between arrow key codes and character keys, ensuring no 180° turns.
+
+4. **Update Logic** (`update`)  
+   - Moves head in current direction.  
+   - Checks for collisions with walls or self (linear search).  
+   - Grows snake when eating food, adjusts `delay` speed, and places new food.
+
+5. **Rendering** (`render`)  
+   - Uses WinAPI to position the cursor at (0,0) each frame for flicker-free updates.  
+   - Draws borders, snake, food, and dynamic status text (score/stamina).
+
+6. **Game Over** (`showGameOver`)  
+   - Plays a dot-matrix animation.  
+   - Displays a final summary box with score, stamina, and messages.
+
+### Time Complexity
+
+Let *n* be the snake length, *W×H* the board size:
+
+- **Input & Movement**: O(1) per frame.
+- **Collision Check**: O(n).
+- **Food Placement**: O(n) worst-case.
+- **Rendering**: O(W·H).
+
+Overall per-frame: **O(W·H + n)**.
+
+### Space Complexity
+
+- **O(n + W·H)**: Snake segments plus console buffer.
+- Additional O(1) for timer, score, and small helpers.
+
+### Complexity Graph
+
+```
+Time
+  |      \            (Rendering dominates for large boards)
+  |       \__ O(W·H) + O(n)
+  |____________________
+             Snake Length n
+```
+
+---
+
+## 🛠️ Implementation Details
+
+- **Language & API**: C++17 with Windows Console API (`<windows.h>`, `<conio.h>`).
+- **Randomness**: Uses Mersenne Twister seeded by `chrono::steady_clock`.
+- **Console Control**: Cursor hiding, ANSI codepage set to UTF-8 for Unicode blocks.
+- **Timing**: Frame pacing via `std::this_thread::sleep_for`, aiming at ~10 FPS (`INITIAL_DELAY` ms).
+
+---
+
 ## 📸 Screenshot
 
 ```
